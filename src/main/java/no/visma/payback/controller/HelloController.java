@@ -1,4 +1,4 @@
-package no.visma.payback;
+package no.visma.payback.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

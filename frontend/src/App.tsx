@@ -1,22 +1,26 @@
 import React, {useState, useEffect} from 'react';
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-
+import LoanListComponent from './components/LoanListComponent';
+import {LoanContext} from './contexts/LoanContext'
+import AmountComponent from './components/AmountCompnent';
+import SelectTimeComponent from './components/SelectTimeComponent';
 function App() {
-  const [message, setMessage] = useState("");
+  const [type, setType] = useState<string>("");
+const [interest, setInterest] = useState<number>(0);
+const [amount, setAmount] = useState<number>(0);
+const [paybackTime, setPaybackTime] = useState<number>(0);
 
-    useEffect(() => {
-        fetch('/api/hello')
-            .then(response => response.text())
-            .then(message => {
-                setMessage(message);
-            });
-    },[])
 
   return (
+    <LoanContext.Provider value={{type, setType, interest, setInterest, amount, setAmount, paybackTime, setPaybackTime}}>
     <div className="App">
-      {message}
+      <h2>Payback plan</h2>
+      <LoanListComponent></LoanListComponent>
+      <AmountComponent></AmountComponent>
+      <SelectTimeComponent></SelectTimeComponent>
     </div>
+    </LoanContext.Provider>
   );
 }
 
