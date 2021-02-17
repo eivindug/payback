@@ -1,10 +1,40 @@
 .App {
   text-align: center;
+  width: 40%;
+  justify-content: center;
+  margin-left: 30%;
+  align-items: center;
+  border: 2px solid lightgray;
+  margin-top: 5%;
+  display: flex;
+  flex-direction: row;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.loan-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  background: blue;
+  color: #fff;
+}
+.btn:hover {
+  background: rgb(77, 128, 221) !important;
+  color: #fff;
+}
+.btn:active {
+  background: rgb(77, 128, 221) !important;
+  color: #fff;
+}
+.btn:focus {
+  background: rgb(77, 128, 221) !important;
+  color: #fff;
 }
 
 @media (prefers-reduced-motion: no-preference) {

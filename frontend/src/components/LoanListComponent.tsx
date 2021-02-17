@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react';
-import {Dropdown} from 'react-bootstrap';
+import {Dropdown, InputGroup} from 'react-bootstrap';
 import axios, {AxiosResponse} from 'axios'
 import {LoanContext} from '../contexts/LoanContext'
 
@@ -13,7 +13,7 @@ interface Loan {
 function LoanListComponent() {
     const [loans, setLoans] = useState<Loan[]>([]);
 
-    const {type, setType, interest, setInterest, amount, setAmount, paybackTime, setPaybackTime} = useContext(LoanContext)
+    const {type, setType, setInterest, setAmount, setPaybackTime} = useContext(LoanContext)
 
     useEffect(() => {
         axios.get<Loan[]>('/api/loanList')
@@ -32,18 +32,22 @@ function LoanListComponent() {
 
   return (
     <>
-  <Dropdown>
-  <Dropdown.Toggle variant="success" id="dropdown-basic">
-      {type}
-  </Dropdown.Toggle>
-
-  <Dropdown.Menu>
-  {loans.map(loan => (
+      <InputGroup className="mb-3 loan-input">
+        <InputGroup.Prepend>
+          <InputGroup.Text id="basic-addon1">Loan type</InputGroup.Text>
+          <Dropdown className="w-100">
+            <Dropdown.Toggle className="w-100"  variant="success" id="dropdown-basic">
+              {type}
+            </Dropdown.Toggle>
+            <Dropdown.Menu className="w-100">
+              {loans.map(loan => (
                 <Dropdown.Item onClick={() => handleClick(loan)}>{loan.type}</Dropdown.Item>
-            ))}
-  </Dropdown.Menu>
-</Dropdown>
-</>
+              ))}
+            </Dropdown.Menu>
+          </Dropdown>
+        </InputGroup.Prepend>
+      </InputGroup>
+    </>
   );
 }
 

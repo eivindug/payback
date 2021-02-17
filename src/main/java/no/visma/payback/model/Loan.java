@@ -1,4 +1,5 @@
 package no.visma.payback.model;
+import java.lang.Math;
 
 public class Loan {
     private String type;
@@ -46,8 +47,10 @@ public class Loan {
     }
 
     public double getMonthlyAmount(){
-        double newAmount = this.interest*this.amount;
-        return newAmount/paybackTime/12;
+        double rate = (this.interest/12)/100;
+        int payments = this.paybackTime*12;
+        double term1 = Math.pow((1+rate),payments)*rate;
+        double term2 = Math.pow((1+rate),payments)-1;
+        return this.amount*(term1 / term2);
     }
-
 }

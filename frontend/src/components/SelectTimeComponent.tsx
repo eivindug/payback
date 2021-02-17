@@ -1,32 +1,29 @@
 import React, {useContext} from 'react';
-import {Dropdown} from 'react-bootstrap';
+import {Dropdown, InputGroup} from 'react-bootstrap';
 import {LoanContext} from '../contexts/LoanContext';
-import axios, {AxiosResponse} from 'axios';
 
 function SelectTimeComponent() {
-    const {paybackTime, setPaybackTime, type, interest, amount} = useContext(LoanContext)
+    const {paybackTime, setPaybackTime} = useContext(LoanContext)
     const yearOptions = [5, 10, 15, 20, 25, 30]
-
-    var bodyFormData = new FormData();
-    bodyFormData.append('type', type);
-    bodyFormData.append('type', type);
-    bodyFormData.append('type', type);
-
 
   return (
     <>
-  <Dropdown>
-  <Dropdown.Toggle variant="success" id="dropdown-basic">
-      {paybackTime} years
-  </Dropdown.Toggle>
-
-  <Dropdown.Menu>
-  {yearOptions.map(year => (
-                <Dropdown.Item onClick={() => setPaybackTime(year)}>{year}</Dropdown.Item>
-            ))}
-  </Dropdown.Menu>
-</Dropdown>
-</>
+      <InputGroup className="mb-3 loan-input">
+        <InputGroup.Prepend>
+          <InputGroup.Text id="basic-addon1">Payback time</InputGroup.Text>
+          <Dropdown className="w-100">
+            <Dropdown.Toggle className="w-100" variant="success" id="dropdown-basic">
+              {paybackTime} years
+            </Dropdown.Toggle>
+            <Dropdown.Menu className="w-100">
+              {yearOptions.map(year => (
+              <Dropdown.Item onClick={() => setPaybackTime(year)}>{year}</Dropdown.Item>
+              ))}
+            </Dropdown.Menu>
+          </Dropdown>
+        </InputGroup.Prepend>
+    </InputGroup>
+  </>
   );
 }
 

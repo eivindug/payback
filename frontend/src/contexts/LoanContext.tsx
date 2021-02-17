@@ -9,7 +9,8 @@ type LoanProps = {
   setAmount: Function,
   paybackTime: number,
   setPaybackTime: Function
-
+  monthlyPayment: number | undefined, 
+  setMonthlyPayment: Function
 }
 
 export const LoanContext = createContext<LoanProps>({
@@ -20,5 +21,7 @@ export const LoanContext = createContext<LoanProps>({
   amount: 0,
   setAmount: Function,
   paybackTime: 0,
-  setPaybackTime: Function
+  setPaybackTime: Function,
+  monthlyPayment: undefined,
+  setMonthlyPayment: Function
 });

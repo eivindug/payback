@@ -1,5 +1,6 @@
 package no.visma.payback.controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,8 +18,8 @@ public class LoanController {
         return loanList.getLoanList();
     }
 
-    @GetMapping("/api/plan")
-    public double getPayPlan(@RequestBody Loan loan) {
+    @PostMapping("/api/plan")
+    public double setLoan(@RequestBody Loan loan) {
         return loan.getMonthlyAmount();
     }
 }
