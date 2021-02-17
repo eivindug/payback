@@ -10,7 +10,7 @@ function InterestComponent() {
       <InputGroup className="mb-3 loan-input">
         <InputGroup.Prepend>
           <InputGroup.Text id="basic-addon1">Interest</InputGroup.Text>
-          <Form.Control className="w-100" type="range" min={0} max={15} onChange={(data) => setInterest(data.target.value)}/>
+          <Form.Control className="w-100" type="range" min={0} max={15} value={interest} onChange={(data) => setInterest(data.target.value)}/>
           <Form.Control
           value={interest}
           aria-describedby="basic-addon1"

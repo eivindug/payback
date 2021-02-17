@@ -1,7 +1,7 @@
 import {createContext} from 'react'
 
 type LoanProps = {
-  type: string,
+  type: string | undefined,
   setType: Function,
   interest: number,
   setInterest: Function,
@@ -14,7 +14,7 @@ type LoanProps = {
 }
 
 export const LoanContext = createContext<LoanProps>({
-  type: "",
+  type: undefined,
   setType: Function,
   interest: 0,
   setInterest: Function,

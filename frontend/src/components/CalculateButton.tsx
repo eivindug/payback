@@ -14,7 +14,8 @@ function CalculateButton() {
             paybackTime: paybackTime
         })
         .then(function (response) {
-            setMonthlyPayment(response.data);
+            type? setMonthlyPayment(response.data):
+            alert("no type selected");
         })
         .catch(function (error) {
             console.log(error);
