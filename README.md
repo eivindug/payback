@@ -7,9 +7,9 @@ Java JDK 11
 Nodejs
 
 To run backend (http://localhost:8080/):
-mvn spring-boot:run 
+* mvn spring-boot:run 
 
 To run frontend (http://localhost:3000/): 
-cd frontend
-npm install
-npm start
+* cd frontend
+* npm install
+* npm start
