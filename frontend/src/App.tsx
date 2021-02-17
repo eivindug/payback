@@ -9,13 +9,13 @@ import CalculateButton from './components/CalculateButton';
 import InterestComponent from './components/InterestComponent';
 import PaybackPlan from './components/PaybackPlan';
 import {Form} from 'react-bootstrap';
+
 function App() {
   const [type, setType] = useState<string>("");
-const [interest, setInterest] = useState<number>(0);
-const [amount, setAmount] = useState<number>(0);
-const [paybackTime, setPaybackTime] = useState<number>(0);
-const [monthlyPayment, setMonthlyPayment] = useState<number | undefined>(undefined);
-
+  const [interest, setInterest] = useState<number>(0);
+  const [amount, setAmount] = useState<number>(0);
+  const [paybackTime, setPaybackTime] = useState<number>(0);
+  const [monthlyPayment, setMonthlyPayment] = useState<number | undefined>(undefined);
 
   return (
     <LoanContext.Provider value={{type, setType, interest, setInterest, amount, setAmount, paybackTime, setPaybackTime, monthlyPayment, setMonthlyPayment}}>
@@ -28,6 +28,7 @@ const [monthlyPayment, setMonthlyPayment] = useState<number | undefined>(undefin
       <AmountComponent></AmountComponent>
       <SelectTimeComponent></SelectTimeComponent>
       <CalculateButton></CalculateButton>
+      <br/>
       <br/>
       <PaybackPlan></PaybackPlan>
       </Form>

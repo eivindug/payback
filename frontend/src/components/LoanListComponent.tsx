@@ -21,7 +21,7 @@ function LoanListComponent() {
             console.log(response.data);
             setLoans(response.data);
         });
-    }, []);
+    }, [type]);
 
     const handleClick = (loan:Loan) => {
         setType(loan.type);
